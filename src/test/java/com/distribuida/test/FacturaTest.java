@@ -42,6 +42,31 @@ public class FacturaTest {
 
                 );
     }
+
+    @Test
+    public void testFacturaSetters() throws Exception {
+
+        factura.setIdFactura(2);
+        factura.setNumFactura("F-002");
+        //factura.setFecha(new Date());
+        factura.setTotalNeto(200.0);
+        factura.setIva(24.0);
+        factura.setTotal(224.0);
+
+        Cliente nuevoCliente = new Cliente(2, "1234567890", "Ana", "Pérez", "Av. Siempre Viva", "0987654321", "ana@example.com");
+        factura.setCliente(nuevoCliente);
+
+        assertAll("Validar datos Factura, Setters",
+                () -> assertEquals(2, factura.getIdFactura()),
+                () -> assertEquals("F-002", factura.getNumFactura()),
+                //() -> assertEquals(new Date(), factura.getFecha()),
+                () -> assertEquals(200.0, factura.getTotalNeto()),
+                () -> assertEquals(24.0, factura.getIva()),
+                () -> assertEquals(224.0, factura.getTotal()),
+                () -> assertEquals(nuevoCliente, factura.getCliente())
+        );
+    }
+
    @Test
     public void testFacturaToString(){
         String str = factura.toString();

@@ -9,21 +9,20 @@ public class Factura {
     private Double totalNeto;
     private Double iva;
     private Double total;
-    private  int idCliente;
+   // private  int idCliente;
 
     private Cliente cliente;
 
     public Factura() {
     }
 
-    public Factura(int idFactura, String numFactura, Date fecha, Double totalNeto, Double iva, Double total, int idCliente, Cliente cliente) {
+    public Factura(int idFactura, String numFactura, Date fecha, Double totalNeto, Double iva, Double total, Cliente cliente) {
         this.idFactura = idFactura;
         this.numFactura = numFactura;
         this.fecha = fecha;
         this.totalNeto = totalNeto;
         this.iva = iva;
         this.total = total;
-        this.idCliente = idCliente;
         this.cliente = cliente;
     }
 
@@ -75,14 +74,6 @@ public class Factura {
         this.total = total;
     }
 
-    public int getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
-    }
-
     public Cliente getCliente() {
         return cliente;
     }
@@ -100,7 +91,6 @@ public class Factura {
                 ", totalNeto=" + totalNeto +
                 ", iva=" + iva +
                 ", total=" + total +
-                ", idCliente=" + idCliente +
                 ", cliente=" + cliente +
                 '}';
     }
