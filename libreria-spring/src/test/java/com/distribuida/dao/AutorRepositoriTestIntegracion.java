@@ -76,10 +76,10 @@ public class AutorRepositoriTestIntegracion {
 
     @Test
     public void delete(){
-        if(autorRepository.existsById(39)){
-            autorRepository.existsById(39);
+        if(autorRepository.existsById(35)){
+            autorRepository.existsById(35);
         }
-        assertFalse(autorRepository.existsById(39),"El autor con id = 39 deberia haverse eliminado");
+        assertFalse(autorRepository.existsById(35),"El autor con id = 35 deberia haverse eliminado");
     }
 
 }
