@@ -7,7 +7,7 @@ import java.util.List;
 public interface FacturaDetalleService {
     List<FacturaDetalle> findAll();
     FacturaDetalle findOne( int id);
-    FacturaDetalle save(FacturaDetalle detalle, int idLibro, int idFactura, int idAutor);
-    FacturaDetalle update(int id, int idLibro, int idFactura, int idAutor, FacturaDetalle detalle);
+    FacturaDetalle save(FacturaDetalle facturaDetalle);
+    FacturaDetalle update(int id, FacturaDetalle facturaDetalle);
     void delete(int id);
 }

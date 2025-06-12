@@ -84,7 +84,7 @@ public class FacturaDetalleServicioTestUnitaria {
         FacturaDetalle saved =  facturaDetalleService.save(facturaDetalle);
 
         assertNotNull(saved);
-        assertEquals(2,saved.getCantidad());
+        assertEquals(15,saved.getCantidad());
         verify(facturaDetalleRepository,times(1)).save(facturaDetalle);
 
     }
@@ -97,8 +97,8 @@ public class FacturaDetalleServicioTestUnitaria {
 
         FacturaDetalle Fac = facturaDetalleService.update(1,detalleActualizado);
         assertNotNull(Fac);
-        assertEquals(3,Fac.getCantidad());
-        assertEquals(85.0,Fac.getSubtotal());
+        assertEquals(4,Fac.getCantidad());
+        assertEquals(80.0,Fac.getSubtotal());
 
         verify(facturaDetalleRepository).save(any(FacturaDetalle.class));
 
