@@ -8,7 +8,7 @@ import java.util.List;
 public interface CategoriaService {
     List<Categoria> findAll();
     Categoria findById(int id);
-    Categoria findOne(int id);
+    static Categoria findOne(int id);
     Categoria save(Categoria categoria);
     Categoria update(int id, Categoria categoria);
     void delete(int id);
