@@ -36,7 +36,10 @@ public class FacturaDetalleServicelmpl implements FacturaDetalleService{
     public List<FacturaDetalle> findAll() {
         return facturaDetalleRepository.findAll();
     }
-
+    @Override
+    public FacturaDetalle findById(int id) {
+        return null; // Puedes implementar igual que findOne o eliminar este método si no lo usas
+    }
     @Override
     public FacturaDetalle findOne(int id) {
         return facturaDetalleRepository.findById(id).orElse(null);
