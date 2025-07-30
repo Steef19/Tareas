@@ -64,6 +64,13 @@ public class AutorServiceTestUnitaria {
         assertNull(autor1);
 
     }
+    @Test
+    public void testSave() {
+        when(autorRepository.save(autor)).thenReturn(autor);
+        Autor resultado = autorService.save(autor);
+        assertNotNull(resultado);
+        assertEquals("XD", resultado.getNombre());
+    }
 
     @Test
     public void testUpdateExistente(){
