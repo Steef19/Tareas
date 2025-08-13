@@ -32,7 +32,7 @@ public class AutorController {
         return ResponseEntity.ok(autor);
     }
 
-    @PutMapping
+    @PostMapping
     public ResponseEntity<Autor> save(@RequestBody Autor autor){
         Autor autorNuevo = autorService.save(autor);
         return ResponseEntity.ok(autorNuevo);

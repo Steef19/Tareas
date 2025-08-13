@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/factura-detalles")
+@RequestMapping("/api/factura-detalle")
 public class FacturaDetalleController {
     @Autowired
     private FacturaDetalleService facturaDetalleService;

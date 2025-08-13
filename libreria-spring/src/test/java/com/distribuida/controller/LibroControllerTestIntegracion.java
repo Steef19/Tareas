@@ -38,12 +38,12 @@ public class LibroControllerTestIntegracion {
     private ObjectMapper objectMapper;
 
     @Test
-    public void testFinAll() throws Exception{
+    public void testFindAll() throws Exception{
         Libro libro = new Libro(1,"Fenan","MX",12,"2da","Español",new Date(),"Dura","Meme","125",200,"Genial","elegante",15.25,new Categoria(),new Autor());
 
         Mockito.when(libroService.findAll()).thenReturn(List.of(libro));
 
-        mockMvc.perform(get("/api/libro"))
+        mockMvc.perform(get("/api/libros"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].titulo").value("Fenan"));
 
@@ -55,7 +55,7 @@ public class LibroControllerTestIntegracion {
         Libro libro = new Libro(1,"Fenomeno","EEUU",150,"3ra","Inglés",new Date(),"Dura","Increible","225",450,"Buena","Genial",25.25,new Categoria(),new Autor());
         Mockito.when(libroService.save(any(Libro.class))).thenReturn(libro);
 
-        mockMvc.perform(post("/api/libro")
+        mockMvc.perform(post("/api/libros")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(libro)))
                 .andExpect(status().isOk())
@@ -65,7 +65,10 @@ public class LibroControllerTestIntegracion {
 
     @Test
     public void testDelete() throws  Exception{
-        mockMvc.perform(delete("/api/libro/2")).andExpect(status().isNoContent());
+        mockMvc.perform(delete("/api/libros/2"))
+                .andExpect(status().isNoContent());
+
+
     }
 
 
