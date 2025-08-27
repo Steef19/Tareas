@@ -135,7 +135,7 @@ public class CarritoServiceImpl implements  CarritoService{
 
     @Override
     @Transactional
-    public Carrito getOrCreateByToken(int clienteId, String token) {
+    public Carrito getOrCreateByToken( String token) {
         var c = new Carrito();
         c.setToken(token);
         c.setSubtotal(BigDecimal.ZERO);
@@ -190,7 +190,7 @@ public class CarritoServiceImpl implements  CarritoService{
 
     @Override
     public void removeItem(String token, long carritoItemId) {;
-        updateItemCantidad(token,carritoItemId, 0 )
+        updateItemCantidad(token,carritoItemId, 0 );
     }
 
     @Override

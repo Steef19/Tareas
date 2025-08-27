@@ -18,7 +18,7 @@ public class CarritoGuestController {
 
     @PostMapping
     public ResponseEntity<Carrito> createOrGet(@RequestParam String token){
-        return  ResponseEntity.ok(carritoService.gerOrCreateByToken(token));
+        return  ResponseEntity.ok(carritoService.getOrCreateByToken(token));
     }
 
     @GetMapping
@@ -34,11 +34,11 @@ public class CarritoGuestController {
 
     }
 
-    @PostMapping("items/{carrotoItemId}")
+    @PostMapping("items/{carritoItemId}")
     public ResponseEntity<Carrito> update(@RequestParam String token,
                                           @PathVariable long carritoItemId,
                                           @RequestBody Map<String,Integer> body){
-        int cantidad = body.getOrDefault("contidad", 0 );
+        int cantidad = body.getOrDefault("cantidad", 0 );
         return ResponseEntity.ok(carritoService.updateItemCantidad(token, carritoItemId,cantidad));
 
 
