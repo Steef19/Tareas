@@ -38,16 +38,20 @@ public class LibroController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Libro> update(@PathVariable int id, @RequestBody Libro libro){
-        int idCtegoria = libro.getCategoria().getIdCategoria();
-        int idAutor = libro.getAutor().getIdAutor();
+    public ResponseEntity<Libro> update(
+            @PathVariable int id,
+            @RequestParam int idCategoria,
+            @RequestParam int idAutor,
+            @RequestBody Libro libro) {
 
-        Libro libroActualizado = libroService.update(id, idCtegoria, idAutor, libro);
-        if (libroActualizado == null){
+        Libro libroActualizado = libroService.update(id, idCategoria, idAutor, libro);
+
+        if (libroActualizado == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(libroActualizado);
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable int id){

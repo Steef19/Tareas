@@ -34,7 +34,7 @@ public class CarritoGuestController {
 
     }
 
-    @PostMapping("items/{carritoItemId}")
+    @PutMapping("items/{carritoItemId}")
     public ResponseEntity<Carrito> update(@RequestParam String token,
                                           @PathVariable long carritoItemId,
                                           @RequestBody Map<String,Integer> body){
