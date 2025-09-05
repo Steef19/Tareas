@@ -28,7 +28,7 @@ public class CarritoGuestController {
 
     @PostMapping("/items")
     public ResponseEntity<Carrito> addItem(@RequestParam String token, @RequestBody Map<String, Integer> body){
-        int libroId = body.getOrDefault("LibroId", 0);
+        int libroId = body.getOrDefault("libroId", 0);
         int cantidad = body.getOrDefault("cantidad",0);
         return ResponseEntity.ok(carritoService.addItem(token, libroId, cantidad));
 

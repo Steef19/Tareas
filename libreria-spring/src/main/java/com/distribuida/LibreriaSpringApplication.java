@@ -8,7 +8,9 @@ public class LibreriaSpringApplication {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(LibreriaSpringApplication.class, args);
+		SpringApplication app = new SpringApplication(LibreriaSpringApplication.class);
+		app.setAdditionalProfiles("default");
+		app.run(args);
 	}
 
 }

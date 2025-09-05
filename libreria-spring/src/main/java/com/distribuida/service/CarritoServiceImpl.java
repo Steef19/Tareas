@@ -70,7 +70,7 @@ public class CarritoServiceImpl implements  CarritoService{
             var item = itemOpt.get();
             item.setCantidad(item.getCantidad()+ cantidad);
             item.setPrecioUnitario(BigDecimal.valueOf(libro.getPrecio()));
-            item.calTotal();
+            item.calcTotal();
             carritoItemRepository.save(item);
 
         } else {
@@ -79,7 +79,7 @@ public class CarritoServiceImpl implements  CarritoService{
             item.setLibro(libro);
             item.setCantidad(cantidad);
             item.setPrecioUnitario(BigDecimal.valueOf(libro.getPrecio()));
-            item.calTotal();
+            item.calcTotal();
             carrito.getItems().add(item);
         }
         carrito.recomputarTotales(IVA);
@@ -170,7 +170,7 @@ public class CarritoServiceImpl implements  CarritoService{
             var item = itemOpt.get();
             item.setCantidad(item.getCantidad() + cantidad);
             item.setPrecioUnitario(BigDecimal.valueOf(libro.getPrecio()));
-            item.calTotal();
+            item.calcTotal();
             carritoItemRepository.save(item);
         } else {
             var item = new CarritoItem();
@@ -178,7 +178,7 @@ public class CarritoServiceImpl implements  CarritoService{
             item.setLibro(libro);
             item.setCantidad(cantidad);
             item.setPrecioUnitario(BigDecimal.valueOf(libro.getPrecio()));
-            item.calTotal();
+            item.calcTotal();
             carrito.getItems().add(item);
         }
         carrito.recomputarTotales(IVA);
@@ -197,7 +197,7 @@ public class CarritoServiceImpl implements  CarritoService{
            carritoItemRepository.delete(item);
        } else {
            item.setCantidad(nuevaCantidad);
-           item.calTotal();
+           item.calcTotal();
            carritoItemRepository.save(item);
        }
        carrtio.recomputarTotales(IVA);

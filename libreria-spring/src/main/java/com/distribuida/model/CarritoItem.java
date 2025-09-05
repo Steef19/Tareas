@@ -42,10 +42,10 @@ public class CarritoItem {
 
     @PrePersist @PreUpdate
     public void jpaCalcTotal(){
-        calTotal();
+        calcTotal();
     }
 
-    public void calTotal(){
+    public void calcTotal(){
         if (precioUnitario == null) precioUnitario = BigDecimal.ZERO;
         if (cantidad == null) cantidad = 0;
         total = precioUnitario.multiply(BigDecimal.valueOf(cantidad))

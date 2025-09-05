@@ -23,7 +23,7 @@ import java.util.UUID;
 public class imagenController {
     private  static final  String UPLOAD_DIR="uploads/portadas/";
 
-    @PostMapping("/upload-portada")
+    @PostMapping("/uploads-portadas")
     public ResponseEntity<Map<String,String>> uploadPortada(
             @RequestParam("file")MultipartFile file,
             @RequestParam(value="oldImage", required = false) String oldImage
