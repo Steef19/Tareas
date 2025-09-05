@@ -41,12 +41,12 @@ public class CarritoGuestControllerIntegrationTest {
     @Test
     void testCreateOrGet() throws Exception{
         Carrito carrito = createTestCarrito();
-        when(carritoService.getOrCreateByToken("test-token")).thenReturn(carrito);
-        mockMvc.perform(post("api/guest/cart")
+        when(carritoService.getOrCreateByToken("Test-Token")).thenReturn(carrito);
+        mockMvc.perform(post("/api/guest/cart")
                 .param("token","Test-Token"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.idCarrito").value(1))
-                .andExpect(jsonPath("$.token").value("test.token"));
+                .andExpect(jsonPath("$.token").value("test-token"));
     }
 
 }

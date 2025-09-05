@@ -76,14 +76,14 @@ public class LibroControllerTestUnitaria {
     @Test
     public void testUpdateExistente() {
         when(libroService.update(eq(1), eq(1), eq(1), any(Libro.class))).thenReturn(libro);
-        ResponseEntity<Libro> response = libroController.update(1, libro);
+        ResponseEntity<Libro> response = libroController.update(1,1,1, libro);
         assertEquals(200, response.getStatusCodeValue());
     }
 
     @Test
     public void testUpdateNoExistente() {
         when(libroService.update(eq(2), eq(1), eq(1), any(Libro.class))).thenReturn(null);
-        ResponseEntity<Libro> response = libroController.update(2, libro);
+        ResponseEntity<Libro> response = libroController.update(2,2,2, libro);
         assertEquals(404, response.getStatusCodeValue());
     }
 
